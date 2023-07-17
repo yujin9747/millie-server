@@ -1,0 +1,9 @@
+security:
+  jwt:
+    secret: 1bfe844812de910e60af2911713fe1bc423d66f9d8b8b6cf43cf6521c504a38c8a81d726e2028a08e0305ec3945222e29a1350a0e7a8ac3f35c156c808d32793
+    token:
+      validtime:
+        access: 31557600000
+        refresh: 31557600000
+        clientSecret: 3600000
+      secretkey: jwtsecretKeyhastolonghowlongidontknow
