@@ -6,7 +6,7 @@ spring:
     include: oauth, app
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://43.202.13.187:3306/millie?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: jdbc:mysql://43.202.13.187:3306/millie
     username: root
     password: Slsddbwls4421!
 #  datasource:
@@ -16,6 +16,8 @@ spring:
 #      password:
 #      driver-class-name: org.h2.Driver
   jpa:
+    database: mysql   # 추가 해준 부분
+    database-platform: org.hibernate.dialect.MySQL5Dialect # 추가 해준 부분
     hibernate:
       ddl-auto: validate
     properties:
