@@ -16,6 +16,7 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsUtils;
 
 @Configuration
 @EnableWebSecurity // Spring Security 활성화, debug 모드 활성화 하여 Security Filter 들이 어떤 순서로 실행되는지 확인
@@ -39,6 +40,7 @@ public class SecurityConfig {
                         sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS) // STATELESS는 스프링 시큐리티가 세션을 생성하지 않고, 있어도 사용하지 않겠다는 설정 값
                 )
                 .authorizeHttpRequests((authorize) -> {
+                    authorize.requestMatchers(CorsUtils::isPreFlightRequest).permitAll();
                     authorize.requestMatchers("/token/**").permitAll(); // 토근 발급을 위한 경로는 모두 허용
                     authorize.requestMatchers("/", "/css/**","/images/**","/js/**","/favicon.ico","/h2-console/**").permitAll();
                     authorize.anyRequest().authenticated(); // 그 외 경로는 모두 인증 필요

@@ -5,11 +5,16 @@ spring:
     active: local
     include: oauth, app
   datasource:
-    url: jdbc:h2:tcp://localhost/~/millie
-    hikari:
-      username: sa
-      password:
-      driver-class-name: org.h2.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://43.202.13.187:3306/millie?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: Slsddbwls4421!
+#  datasource:
+#    url: jdbc:h2:tcp://localhost/~/millie
+#    hikari:
+#      username: sa
+#      password:
+#      driver-class-name: org.h2.Driver
   jpa:
     hibernate:
       ddl-auto: validate
